@@ -217,19 +217,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1859307458}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &278915310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278915309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6979cdb7c6767cb4b885035d941da8a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fail_scene_name: Death_Scene
 --- !u!1001 &422761094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,6 +310,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause_canvas: {fileID: 2005740879}
+--- !u!114 &782278145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782278143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979cdb7c6767cb4b885035d941da8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_object: {fileID: 278915309}
+  fail_scene_name: Death_Scene
 --- !u!114 &837902800 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2214768242020496133, guid: d615395b0775322408b42d4f1a02c0ba,

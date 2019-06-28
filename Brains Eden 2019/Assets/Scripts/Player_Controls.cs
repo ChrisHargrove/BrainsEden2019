@@ -18,6 +18,8 @@ public class Player_Controls : MonoBehaviour
     [SerializeField] private float fire_speed;
     [SerializeField] private float spell_fire_offset; // The distance infront of the player which the projectile spawns
 
+    [SerializeField] public int score;
+
 
     private Vector3 movement_direction = new Vector3();
 
