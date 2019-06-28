@@ -9,6 +9,8 @@ public class Main_Menu_Control : MonoBehaviour
     [SerializeField] Button start_button;
     [SerializeField] Button scores_button;
     [SerializeField] Button quit_button;
+
+    [SerializeField] string game_scene_name;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class Main_Menu_Control : MonoBehaviour
     void Start_Clicked()
     {
         // Change to main game scene
-        SceneManager.LoadScene("Player_Test");
+        SceneManager.LoadScene(game_scene_name);
     }
     void Scores_Clicked()
     {
