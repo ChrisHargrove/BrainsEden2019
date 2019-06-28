@@ -7,9 +7,8 @@ public class Camera_Boom : MonoBehaviour
     [SerializeField] private GameObject target_object;
     [SerializeField] private float camera_distance;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
