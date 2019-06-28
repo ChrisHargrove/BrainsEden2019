@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent Agent;
     public Rigidbody RigidBody;
 
+    public bool IsDead = false;
+
 
     public void GoTo(Transform transform) {
         Agent.SetDestination(transform.position);
