@@ -7,6 +7,8 @@ public class EnemyManager : MonoBehaviour
     private const int DEFAULT_WAVE_SIZE = 6;
 
     public GameObject EnemyPrefab;
+    [Space]
+    public BuildingManager BuildingManager;
 
     private Camera Camera;
 
@@ -51,7 +53,9 @@ public class EnemyManager : MonoBehaviour
 
         var enemy = Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
+        enemy.Initialize(BuildingManager);
         EnemyList.Add(enemy);
+
     }
 
     public void SpawnWave()

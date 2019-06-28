@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1951912302773951117
+--- !u!1 &5969189402091862296
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1951912302773951123}
-  - component: {fileID: 1951912302773951122}
+  - component: {fileID: 4167875952505816893}
+  - component: {fileID: 6134770198302460344}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: BuildingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1951912302773951123
+--- !u!4 &4167875952505816893
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951912302773951117}
+  m_GameObject: {fileID: 5969189402091862296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,22 +31,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951912302773951122
+--- !u!114 &6134770198302460344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951912302773951117}
+  m_GameObject: {fileID: 5969189402091862296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d58638587739f4e959bb4a27da383b, type: 3}
+  m_Script: {fileID: 11500000, guid: 56dd086388225bc4dbe13a8556d543a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 1403010073485815829, guid: 253cdd4d519b8b94dbdaffff67f1c5db,
-    type: 3}
-  BuildingManager: {fileID: 6134770198302460344, guid: 1916e20f2a81a9d4b8479992962c9980,
-    type: 3}
-  SpawnRange: 10
-  SpawnInterval: 10
-  WaveCountIncrease: 2
+  Houses:
+  - {fileID: 0}
