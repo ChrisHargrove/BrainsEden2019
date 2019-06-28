@@ -8,6 +8,11 @@ public class BuildingManager : MonoBehaviour
     public Building Tower;
     public List<Building> Houses = new List<Building>();
 
+    void Update()
+    {
+        RemoveDeadBuildings();
+    }
+
     public Building FindClosestHouse(Vector3 position)
     {
         if (Houses.Count > 0)
@@ -28,5 +33,9 @@ public class BuildingManager : MonoBehaviour
         }
 
         return Tower;
+    }
+
+    public void RemoveDeadBuildings() {
+        Houses.RemoveAll(delegate (Building b) { return b.CurrentDestruction == DestructionLevel.DESTROYED; });
     }
 }

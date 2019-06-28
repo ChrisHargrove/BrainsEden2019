@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private BuildingManager BuildingManager;
 
     public bool IsDead = false;
+    public int DamageDone = 2;
 
     private EnemyState State = EnemyState.NONE;
 
@@ -32,10 +33,14 @@ public class Enemy : MonoBehaviour
     }
 
     void Update() {
-        if(CurrentTarget == null && !Agent.isStopped) {
-            GoTo(BuildingManager.FindClosestHouse(transform.position).transform);
+
+        if(State == EnemyState.ATTACKING) {
+            if(CurrentTarget != null) CurrentTarget.Damage(DamageDone);
         }
 
+        if(CurrentTarget == null) {
+            GoTo(BuildingManager.FindClosestHouse(transform.position).transform);
+        }
         Animator.SetInteger("State", (int)State);
     }
 
@@ -56,4 +61,5 @@ public class Enemy : MonoBehaviour
         Agent.SetDestination(location);
         State = EnemyState.MOVING;
     }
+
 }

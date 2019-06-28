@@ -13,7 +13,7 @@ public enum DestructionLevel
 
 public class Building : MonoBehaviour
 {
-    private DestructionLevel CurrentDestruction = DestructionLevel.NONE;
+    public DestructionLevel CurrentDestruction = DestructionLevel.NONE;
 
     [Range(1, 100)] public int Health = 100;
     private int MaxHealth;
