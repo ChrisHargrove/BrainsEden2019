@@ -18,5 +18,15 @@ public class Death_Menu : MonoBehaviour
     void Back_To_Menu_Click()
     {
         SceneManager.LoadScene(main_menu_name);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(back_to_menu.gameObject);
+
+        //if (event_sys.currentSelectedGameObject == null)
+        //{
+        //    event_sys.SetSelectedGameObject(current_event_object);
+        //}
+        //else
+        //{
+        //    current_event_object = event_sys.currentSelectedGameObject;
+        //}
     }
 }

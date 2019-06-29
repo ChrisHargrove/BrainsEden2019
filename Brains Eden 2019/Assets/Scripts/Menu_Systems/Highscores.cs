@@ -43,6 +43,13 @@ public class Highscores : MonoBehaviour
         {
             Load_Scores();
         }
+
+        if (name_field.isFocused)
+        {
+            Debug.Log("Opening Keyboard");
+            
+            TouchScreenKeyboard.Open(name_field.text, TouchScreenKeyboardType.Default);
+        }
     }
 
     private void Add_Name_Clicked()

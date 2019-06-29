@@ -11,6 +11,11 @@ public class Main_Menu_Control : MonoBehaviour
     [SerializeField] Button quit_button;
 
     [SerializeField] string game_scene_name;
+
+    [SerializeField] UnityEngine.EventSystems.EventSystem event_sys;
+
+    private GameObject current_event_object;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +27,14 @@ public class Main_Menu_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (event_sys.currentSelectedGameObject == null)
+        {
+            event_sys.SetSelectedGameObject(current_event_object);
+        }
+        else
+        {
+            current_event_object = event_sys.currentSelectedGameObject;
+        }
     }
 
     void Start_Clicked()
