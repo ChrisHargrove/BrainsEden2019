@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1403010073485815825}
   - component: {fileID: 2572633242137949037}
   - component: {fileID: 8653133706712861843}
+  - component: {fileID: 8217509508768553034}
   m_Layer: 0
   m_Name: Gremil
   m_TagString: Untagged
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Agent: {fileID: 1403010073485815826}
   RigidBody: {fileID: 1403010073485815825}
-  Animator: {fileID: 6892625502765234732}
+  Animator: {fileID: 8217509508768553034}
   Mesh: {fileID: 6892625502772644328}
   ChainManager: {fileID: 0}
   IsDead: 0
@@ -142,6 +143,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &8217509508768553034
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403010073485815829}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
+  m_Controller: {fileID: 9100000, guid: ae471f71b70422f428a339a07f4aecfe, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &237824245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,10 +246,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gremil@Walking
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ae471f71b70422f428a339a07f4aecfe, type: 2}
     - target: {fileID: 400004, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -286,7 +302,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ae471f71b70422f428a339a07f4aecfe, type: 2}
+    - target: {fileID: 9500000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ae471f71b70422f428a339a07f4aecfe, type: 2}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7a735dd23941814ebcdb847fdba586d, type: 3}
 --- !u!1 &6892625502772644328 stripped
 GameObject:
@@ -297,12 +322,6 @@ GameObject:
 --- !u!4 &6892625502772155848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: e7a735dd23941814ebcdb847fdba586d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6892625502772547404}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6892625502765234732 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: e7a735dd23941814ebcdb847fdba586d,
     type: 3}
   m_PrefabInstance: {fileID: 6892625502772547404}
   m_PrefabAsset: {fileID: 0}
