@@ -17,6 +17,7 @@ public class Player_Controls : MonoBehaviour
 
     [SerializeField] private float turn_speed;
     [SerializeField] private GameObject attack_projectile;
+    [SerializeField] private GameObject secondary_attack_projectile;
     [SerializeField] private float fire_speed;
     [SerializeField] private float spell_fire_offset; // The distance infront of the player which the projectile spawns
 
@@ -58,16 +59,22 @@ public class Player_Controls : MonoBehaviour
         if ((Input.GetMouseButtonDown(0)) || ((Input.GetAxis("Shoot") > 0) && (!is_shooting)))
         {
             is_shooting = true;
-            Attack_Spell(transform.forward);
+            Attack_Spell(attack_projectile,transform.forward);
         }
 
-        if (Input.GetAxis("Shoot") == 0)
+        if ((Input.GetMouseButtonDown(1)) || ((Input.GetAxis("Shoot_Secondary") > 0) && (!is_shooting)))
+        {
+            is_shooting = true;
+            Attack_Spell(secondary_attack_projectile,transform.forward);
+        }
+
+        if (Input.GetAxis("Shoot") == 0 && Input.GetAxis("Shoot_Secondary") == 0)
         {
             is_shooting = false;
         }
     }
 
-    void Attack_Spell(Vector3 fire_direction)
+    void Attack_Spell(GameObject i_proj,Vector3 fire_direction)
     {
         GameObject created_obj = Instantiate(attack_projectile);
         Rigidbody rb = created_obj.GetComponent<Rigidbody>();
