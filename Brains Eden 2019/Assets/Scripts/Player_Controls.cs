@@ -114,7 +114,7 @@ public class Player_Controls : MonoBehaviour
         // Jumping
         if (char_con.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 current_fall_speed = 0.0f;
                 current_jump_force = max_jump_force;
