@@ -13729,6 +13729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
         type: 3}
+      propertyPath: ChainBreakerPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
+        type: 3}
       propertyPath: BuildingManager
       value: 
       objectReference: {fileID: 169677165}
@@ -13742,6 +13747,12 @@ PrefabInstance:
       propertyPath: SpawnRange
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
+        type: 3}
+      propertyPath: ChainBreakerPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5191406308536508069, guid: b80f66be578d9e14288b242f8cefdd97,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d, type: 3}
 --- !u!4 &425843671 stripped
