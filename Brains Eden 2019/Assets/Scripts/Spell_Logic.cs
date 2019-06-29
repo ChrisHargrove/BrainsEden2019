@@ -6,6 +6,9 @@ public class Spell_Logic : MonoBehaviour
 {
     [SerializeField] private float hover_height; // Height the spell projectile will hover off of the floor
 
+    private float current_time;
+    [SerializeField] private float max_lifetime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,8 @@ public class Spell_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        current_time += Time.deltaTime;
+
         RaycastHit hit = new RaycastHit();
         Physics.Raycast(transform.position, Vector3.down, out hit);
 
@@ -22,10 +27,15 @@ public class Spell_Logic : MonoBehaviour
         {
             transform.position = hit.point + (Vector3.up * hover_height);
         }
+
+        if (current_time >= max_lifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
