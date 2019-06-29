@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent Agent;
     public Rigidbody RigidBody;
     public Animator Animator;
+    public GameObject Mesh;
 
     private Building CurrentTarget;
     private BuildingManager BuildingManager;
@@ -37,9 +38,10 @@ public class Enemy : MonoBehaviour
     public Chain chain = null;
 
     public EnemyType Type;
+    public EnemyType DeathType;
 
-    //temp
-    public Material DeathMaterial;
+    public GameObject ExplosionParticle;
+    public GameObject DissolveParticle;
 
     public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
@@ -47,24 +49,51 @@ public class Enemy : MonoBehaviour
     }
 
     void Start() {
-        if(BuildingManager != null) GoTo(BuildingManager.FindClosestHouse(transform.position).transform);
+        if (BuildingManager != null) {
+            var building = BuildingManager.FindClosestHouse(transform.position);
+            if (building != null) GoTo(building.transform);
+        }
         chain = null;
     }
 
     void Update() {
 
-        if(State == EnemyState.ATTACKING) {
-            if(CurrentTarget != null) CurrentTarget.Damage(DamageDone);
-        }
-
         if(CurrentTarget == null && Agent.enabled && BuildingManager != null) {
-            GoTo(BuildingManager.FindClosestHouse(transform.position).transform);
+            var building = BuildingManager.FindClosestHouse(transform.position);
+            if (building != null) GoTo(building.transform);
         }
         Animator.SetInteger("State", (int)State);
 
-        if(State == EnemyState.DIEING)
+        if(State == EnemyState.DIEING) {
+            Death();
+        }
+    }
+
+    public void Attack()
+    {
+        switch (Type) {
+            case EnemyType.NORMAL:
+                if (CurrentTarget != null) CurrentTarget.Damage(DamageDone);
+                break;
+            case EnemyType.BOMB:
+                if (CurrentTarget != null) CurrentTarget.Damage(DamageDone);
+
+                Mesh.SetActive(false);
+                ExplosionParticle.SetActive(true);
+                break;
+        }
+    }
+
+    public void Death()
+    {
+        switch (DeathType)
         {
-            GetComponentInChildren<SkinnedMeshRenderer>().material = DeathMaterial;
+            case EnemyType.NORMAL:
+                break;
+            case EnemyType.BOMB:
+                Mesh.SetActive(false);
+                ExplosionParticle.SetActive(true);
+                break;
         }
     }
 
@@ -119,7 +148,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void PopChain() {
-        ChainManager.PopChain(chain, transform.position);
+        ChainManager.PopChain(chain, this);
     }
 
     public void GoTo(Transform transform) {

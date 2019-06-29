@@ -33,20 +33,20 @@ public class ChainManager : MonoBehaviour
         return chain;
     }
 
-    public void PopChain(Chain chain, Vector3 chainBreakerPosition)
+    public void PopChain(Chain chain, Enemy chainBreaker)
     {
-        StartCoroutine(PopChainCoroutine(chain, chainBreakerPosition));
+        StartCoroutine(PopChainCoroutine(chain, chainBreaker));
     }
 
-    private IEnumerator PopChainCoroutine(Chain chain, Vector3 chainBreakerPosition)
+    private IEnumerator PopChainCoroutine(Chain chain, Enemy chainBreaker)
     {
         //First sort the chain bu location of breakage
-        chain.Sort(chainBreakerPosition);
+        chain.Sort(chainBreaker.transform.position);
         //While there are enemies break one and wait
-        while(chain.Enemies.Count > 0)
-        {
+        while(chain.Enemies.Count > 0) {
             var enemyToPop = chain.Enemies.ElementAt(chain.Enemies.Count - 1);
             enemyToPop.State = EnemyState.DIEING;
+            enemyToPop.DeathType = chainBreaker.Type;
             chain.Enemies.RemoveAt(chain.Enemies.Count - 1);
 
             yield return new WaitForSeconds(0.5f);
