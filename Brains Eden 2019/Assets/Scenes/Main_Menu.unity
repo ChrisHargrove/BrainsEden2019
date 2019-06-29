@@ -858,7 +858,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game name here
+  m_Text: Sticky Gremils
 --- !u!222 &1477394012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1308,8 +1308,7 @@ MonoBehaviour:
   - {fileID: 7100438552905709849}
   - {fileID: 7426206315634024691}
   - {fileID: 8652777831326446212}
-  name_field: {fileID: 0}
-  name_add_button: {fileID: 0}
+  initials_field: {fileID: 0}
 --- !u!1 &6574148958419363665
 GameObject:
   m_ObjectHideFlags: 0
