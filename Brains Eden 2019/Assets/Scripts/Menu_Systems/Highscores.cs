@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Highscores : MonoBehaviour
 {
     [SerializeField] private List<Text> text_array;
-    [SerializeField] private InputField name_field;
-    [SerializeField] private Button name_add_button;
+    //[SerializeField] private InputField name_field;
+    [SerializeField] private Text initials_field;
+    //[SerializeField] private Button name_add_button;
     private List<int> scores_array;
     private List<string> name_array;
     private bool are_scores_loaded = false;
@@ -20,11 +21,6 @@ public class Highscores : MonoBehaviour
 
         // Unlocks the cursor incase it is locked
         Cursor.lockState = CursorLockMode.None;
-
-        if (name_add_button != null)
-        {
-            name_add_button.onClick.AddListener(Add_Name_Clicked);
-        }
 
         scores_array = new List<int>();
         name_array = new List<string>();
@@ -43,23 +39,16 @@ public class Highscores : MonoBehaviour
         {
             Load_Scores();
         }
-
-        if (name_field.isFocused)
-        {
-            Debug.Log("Opening Keyboard");
-            
-            TouchScreenKeyboard.Open(name_field.text, TouchScreenKeyboardType.Default);
-        }
     }
 
-    private void Add_Name_Clicked()
+    public void Add_Name_Clicked()
     {
         GameObject score_saver = GameObject.FindGameObjectWithTag("Data");
         Score_Transfer score_t = score_saver.GetComponent<Score_Transfer>();
 
         if ((score_t != null) && (has_score_updated == false))
         {
-            Add_Score(name_field.text, score_t.player_score);
+            Add_Score(initials_field.text, score_t.player_score);
             has_score_updated = true;
         }
 
