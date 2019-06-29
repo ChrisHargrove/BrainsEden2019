@@ -22,6 +22,8 @@ public class Player_Controls : MonoBehaviour
 
     [SerializeField] public int score;
 
+    private bool is_shooting = false;
+
 
     private Vector3 movement_direction = new Vector3();
 
@@ -53,9 +55,15 @@ public class Player_Controls : MonoBehaviour
         Movement_Controls();
         Player_Rotation();
 
-        if (Input.GetMouseButtonDown(0))
+        if ((Input.GetMouseButtonDown(0)) || ((Input.GetAxis("Shoot") > 0) && (!is_shooting)))
         {
+            is_shooting = true;
             Attack_Spell(transform.forward);
+        }
+
+        if (Input.GetAxis("Shoot") == 0)
+        {
+            is_shooting = false;
         }
     }
 
@@ -72,9 +80,16 @@ public class Player_Controls : MonoBehaviour
         transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * Time.deltaTime * turn_speed);
     }
 
+    Vector3 Controller_Movement_Controls()
+    {
+
+        return (transform.forward * Time.deltaTime * move_speed * -Input.GetAxis("Y Movement"))
+            + (transform.right * Time.deltaTime * move_speed * Input.GetAxis("X Movement"));
+    }
+
     void Movement_Controls()
     {
-        movement_direction = new Vector3(0.0f, 0.0f, 0.0f);
+        movement_direction = Controller_Movement_Controls();
 
         // Forward and back
         if (Input.GetKey(KeyCode.W))
