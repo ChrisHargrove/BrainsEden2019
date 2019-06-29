@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    NONE = 0,
+    IDLE,
+    WALKING_FORWARD,
+    WALKING_BACKWARD,
+    STRAFE_LEFT,
+    STRAFE_RIGHT,
+    ATTACK,
+}
+
 public class Player_Controls : MonoBehaviour
 {
     CharacterController char_con;
@@ -24,6 +35,10 @@ public class Player_Controls : MonoBehaviour
     [SerializeField] public int score;
 
     private bool is_shooting = false;
+
+    private PlayerState State;
+
+    public Animator Animator;
 
 
     private Vector3 movement_direction = new Vector3();
@@ -60,18 +75,22 @@ public class Player_Controls : MonoBehaviour
         {
             is_shooting = true;
             Attack_Spell(attack_projectile,transform.forward);
+            State = PlayerState.ATTACK;
         }
 
         if ((Input.GetMouseButtonDown(1)) || ((Input.GetAxis("Shoot_Secondary") > 0) && (!is_shooting)))
         {
             is_shooting = true;
             Attack_Spell(secondary_attack_projectile,transform.forward);
+            State = PlayerState.ATTACK;
         }
 
         if (Input.GetAxis("Shoot") == 0 && Input.GetAxis("Shoot_Secondary") == 0)
         {
             is_shooting = false;
         }
+
+        Animator.SetInteger("State", (int)State);
     }
 
     void Attack_Spell(GameObject i_proj,Vector3 fire_direction)
@@ -96,25 +115,31 @@ public class Player_Controls : MonoBehaviour
     void Movement_Controls()
     {
         movement_direction = Controller_Movement_Controls();
+        State = PlayerState.IDLE;
 
         // Forward and back
         if (Input.GetKey(KeyCode.W))
         {
             movement_direction += transform.forward * Time.deltaTime * move_speed;
+            State = PlayerState.WALKING_FORWARD;
+
         }
         else if (Input.GetKey(KeyCode.S))
         {
             movement_direction -= transform.forward * Time.deltaTime * move_speed;
+            State = PlayerState.WALKING_BACKWARD;
         }
 
         // Left and right
         if (Input.GetKey(KeyCode.D))
         {
             movement_direction += transform.right * Time.deltaTime * move_speed;
+            State = PlayerState.STRAFE_RIGHT;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             movement_direction -= transform.right * Time.deltaTime * move_speed;
+            State = PlayerState.STRAFE_LEFT;
         }
 
         // Jumping
