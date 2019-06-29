@@ -23,11 +23,6 @@ public class Initials_Setter : MonoBehaviour
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     private bool is_input_detected = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -58,8 +53,6 @@ public class Initials_Setter : MonoBehaviour
                 is_input_detected = true;
                 initial_index--;
             }
-
-
         }
         
         if ((Input.GetAxis("X Movement") == 0 && Input.GetAxis("Y Movement") == 0) &&
