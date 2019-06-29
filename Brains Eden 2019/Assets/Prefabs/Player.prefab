@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5669111755567770667}
   - component: {fileID: 5669111755567770664}
   - component: {fileID: 5669111755567770665}
+  - component: {fileID: 782278144}
+  - component: {fileID: 782278145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -60,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 765c780f167cddf419b1819a83fd4af7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,3 +138,30 @@ MonoBehaviour:
   fire_speed: 600
   spell_fire_offset: 1
   score: 0
+--- !u!114 &782278144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669111755567770670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5076efd11d89d8c47a4730d2112e0499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause_canvas: {fileID: 0}
+--- !u!114 &782278145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669111755567770670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979cdb7c6767cb4b885035d941da8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_object: {fileID: 0}
+  fail_scene_name: Death_Scene

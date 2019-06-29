@@ -297,33 +297,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1015751867}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &782278144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782278143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5076efd11d89d8c47a4730d2112e0499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause_canvas: {fileID: 2005740879}
---- !u!114 &782278145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782278143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6979cdb7c6767cb4b885035d941da8a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower_object: {fileID: 278915309}
-  fail_scene_name: Death_Scene
 --- !u!114 &837902800 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2214768242020496133, guid: d615395b0775322408b42d4f1a02c0ba,
@@ -403,11 +376,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5669111755567770666, guid: 09d1b06a29ab8904e81e8c151a3c915e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 782278144, guid: 09d1b06a29ab8904e81e8c151a3c915e, type: 3}
+      propertyPath: pause_canvas
       value: 
-      objectReference: {fileID: 2100000, guid: 765c780f167cddf419b1819a83fd4af7, type: 2}
+      objectReference: {fileID: 2005740879}
+    - target: {fileID: 782278145, guid: 09d1b06a29ab8904e81e8c151a3c915e, type: 3}
+      propertyPath: tower_object
+      value: 
+      objectReference: {fileID: 278915309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d1b06a29ab8904e81e8c151a3c915e, type: 3}
 --- !u!1 &1026434764
