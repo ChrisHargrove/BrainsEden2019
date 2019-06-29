@@ -82,6 +82,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   shake_severity: 0.7
   building_height: 5
+  tiny_flames: {fileID: 0}
+  medium_flames: {fileID: 0}
+  damaged_1: {fileID: 2100000, guid: 9c2d496fcd7e2434bbc9ded3b40755b8, type: 2}
+  damaged_2: {fileID: 2100000, guid: a517d1b46bfe4ba42903a4e7092a55bc, type: 2}
+  mesh_renderer: {fileID: 2035910985964422776}
   Health: 100
 --- !u!65 &2214768242020496153
 BoxCollider:
@@ -184,6 +189,12 @@ PrefabInstance:
 --- !u!4 &2035910985962521752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c5d470eacdd081047a8e3665b6acc278,
+    type: 3}
+  m_PrefabInstance: {fileID: 2035910985962397208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2035910985964422776 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: c5d470eacdd081047a8e3665b6acc278,
     type: 3}
   m_PrefabInstance: {fileID: 2035910985962397208}
   m_PrefabAsset: {fileID: 0}

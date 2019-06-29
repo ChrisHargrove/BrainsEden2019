@@ -24,12 +24,22 @@ public class Building : MonoBehaviour
     private float sink_progress = 0.0f;
     private bool has_destruction_begun = false;
     //
+    // Destruction flames
+    [SerializeField] GameObject tiny_flames;
+    [SerializeField] GameObject medium_flames;
+    //
+
+    // Destruction meshes
+    [SerializeField] Material damaged_1;
+    [SerializeField] Material damaged_2;
+    [SerializeField] private MeshRenderer mesh_renderer;
+    //
 
     [Range(1, 100)] public int Health = 100;
     private int MaxHealth;
 
     void Start() {
-        MaxHealth = Health;    
+        MaxHealth = Health;
     }
 
     void Update()
@@ -52,9 +62,13 @@ public class Building : MonoBehaviour
 
         if(Health < MaxHealth * 0.5f) {
             CurrentDestruction = DestructionLevel.PARTIAL;
+            tiny_flames.SetActive(true);
+            mesh_renderer.material = damaged_1;
         }
         if(Health < MaxHealth * 0.25f) {
             CurrentDestruction = DestructionLevel.SEVERE;
+            medium_flames.SetActive(true);
+            mesh_renderer.material = damaged_2;
         }
         if (Health <= 0) {
             CurrentDestruction = DestructionLevel.DESTROYED;
