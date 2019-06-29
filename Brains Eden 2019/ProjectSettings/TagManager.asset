@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spell
   - Data
+  - Damage_Spell
   layers:
   - Default
   - TransparentFX
