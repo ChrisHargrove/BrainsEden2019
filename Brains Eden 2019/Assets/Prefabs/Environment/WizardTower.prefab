@@ -86,6 +86,9 @@ MonoBehaviour:
   building_height: 25
   tiny_flames: {fileID: 7169998924059179460}
   medium_flames: {fileID: 6782455528928675542}
+  damaged_1: {fileID: 0}
+  damaged_2: {fileID: 0}
+  mesh_renderer: {fileID: 0}
   Health: 100
 --- !u!208 &5671090756286949147
 NavMeshObstacle:
@@ -97,11 +100,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.055, y: 0.055, z: 0.055}
+  m_Extents: {x: 2.5, y: 2.5, z: 2.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.055, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
   m_TimeToStationary: 0.5
 --- !u!65 &3491150038919446066
 BoxCollider:
@@ -114,8 +117,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.12, z: 0.12}
-  m_Center: {x: 0, y: 0.05, z: 0}
+  m_Size: {x: 5.2, y: 5.2, z: 5.2}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &1658591589670464378
 PrefabInstance:
   m_ObjectHideFlags: 0
