@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public bool IsDead = false;
     public int DamageDone = 2;
 
-    public EnemyState State = EnemyState.NONE;
+    public EnemyState State = EnemyState.MOVING;
 
     private CharacterJoint joint;
     public bool IsChainHead = false;
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
 
         if(State == EnemyState.DIEING)
         {
-            GetComponentInChildren<MeshRenderer>().material = DeathMaterial;
+            GetComponentInChildren<SkinnedMeshRenderer>().material = DeathMaterial;
         }
     }
 
@@ -81,9 +81,8 @@ public class Enemy : MonoBehaviour
         var enemy = collision.collider.GetComponent<Enemy>();
         //If there is an enemy
         if (enemy != null) {
-            if (enemy.chain == chain) return;
             //If the enemy is not the chain head and not in a chain
-            if (!enemy.IsChainHead && enemy.chain == null && chain == null) {
+            if (enemy.chain == null && chain == null) {
                 //Then set the enemy to be the new head of the chain.
                 enemy.IsChainHead = true;
                 //Create a new chain to store the data.
@@ -91,8 +90,9 @@ public class Enemy : MonoBehaviour
                 enemy.chain.Add(enemy);
                 enemy.RigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             }
+
             //If the enemy hit is the chain head or it already has a chain
-            else if(enemy.chain != null && chain == null) {
+            if(enemy.chain != null && chain == null) {
                 //Add a joint to this
                 AddJoint(enemy.GetComponent<Rigidbody>(), collision.GetContact(0).point);
                 //turn off the AI
@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
                 chain = enemy.chain;
                 chain.Add(this);
             }
-            else if( enemy.chain == null && chain != null)
+            else if(enemy.chain == null && chain != null)
             {
                 //Add a joint to this
                 enemy.AddJoint(GetComponent<Rigidbody>(), collision.GetContact(0).point);

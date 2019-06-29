@@ -7,18 +7,19 @@ using System.Linq;
 [System.Serializable]
 public class Chain
 {
-    public HashSet<Enemy> Enemies;
+    public List<Enemy> Enemies;
 
     public Chain() {
-        Enemies = new HashSet<Enemy>();
+        Enemies = new List<Enemy>();
     }
 
     public void Sort(Vector3 position){
-        Enemies = new HashSet<Enemy>(Enemies.OrderByDescending(x => Vector3.Distance(position, x.transform.position)).ToList());
+        Enemies = Enemies.OrderByDescending(x => Vector3.Distance(position, x.transform.position)).ToList();
     }
 
     public void Add(Enemy enemy) {
         Enemies.Add(enemy);
+        Enemies = Enemies.Distinct().ToList();
     }
 }
 
@@ -28,7 +29,7 @@ public class ChainManager : MonoBehaviour
 
     public Chain NewChain() {
         var chain = new Chain();
-        AddChain(chain);
+        Chains.Add(chain);
         return chain;
     }
 
@@ -46,6 +47,7 @@ public class ChainManager : MonoBehaviour
         {
             var enemyToPop = chain.Enemies.ElementAt(chain.Enemies.Count - 1);
             enemyToPop.State = EnemyState.DIEING;
+            chain.Enemies.RemoveAt(chain.Enemies.Count - 1);
 
             yield return new WaitForSeconds(0.5f);
         }
