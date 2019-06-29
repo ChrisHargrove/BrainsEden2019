@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
         var pointInCircle = Random.insideUnitCircle;
         pointInCircle = pointInCircle.normalized * SpawnRange;
 
-        var spawnPoint = new Vector3(pointInCircle.x, 0, pointInCircle.y);
+        var spawnPoint = new Vector3(pointInCircle.x, 0, pointInCircle.y) + transform.position;
 
         var enemy = Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         enemy.transform.SetParent(transform);
