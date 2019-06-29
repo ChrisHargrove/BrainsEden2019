@@ -121,9 +121,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122936363}
+  - component: {fileID: 122936364}
   m_Layer: 0
   m_Name: Score_Storage
-  m_TagString: Untagged
+  m_TagString: Data
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +143,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122936364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122936362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a715848a11157c40836826875ac81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_score: 0
 --- !u!114 &169677165 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6134770198302460344, guid: 1916e20f2a81a9d4b8479992962c9980,
@@ -539,6 +553,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5969189402091862296, guid: 1916e20f2a81a9d4b8479992962c9980,
+        type: 3}
+      propertyPath: m_Name
+      value: BuildingManager
+      objectReference: {fileID: 0}
     - target: {fileID: 6134770198302460344, guid: 1916e20f2a81a9d4b8479992962c9980,
         type: 3}
       propertyPath: Houses.Array.size
@@ -574,11 +593,6 @@ PrefabInstance:
       propertyPath: Tower
       value: 
       objectReference: {fileID: 223383859}
-    - target: {fileID: 5969189402091862296, guid: 1916e20f2a81a9d4b8479992962c9980,
-        type: 3}
-      propertyPath: m_Name
-      value: BuildingManager
-      objectReference: {fileID: 0}
     - target: {fileID: 4167875952505816893, guid: 1916e20f2a81a9d4b8479992962c9980,
         type: 3}
       propertyPath: m_LocalPosition.x

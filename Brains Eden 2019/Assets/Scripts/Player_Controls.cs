@@ -6,6 +6,8 @@ public class Player_Controls : MonoBehaviour
 {
     CharacterController char_con;
 
+    [SerializeField] private GameObject score_storage_object_prefab;
+    private Score_Transfer score_comp;
     [SerializeField] private float move_speed;
     [SerializeField] private float gravity_force;
     [SerializeField] private float max_jump_force;
@@ -28,6 +30,19 @@ public class Player_Controls : MonoBehaviour
     void Start()
     {
         char_con = GetComponent<CharacterController>();
+
+        GameObject score_object_instance = GameObject.FindGameObjectWithTag("Data");
+        GameObject score_object;
+
+        if (score_object_instance == null)
+        {
+            score_object = Instantiate(score_storage_object_prefab);
+        }
+        else
+        {
+            score_object = score_object_instance;
+        }
+        score_comp = score_object.GetComponent<Score_Transfer>();
     }
 
     // Update is called once per frame

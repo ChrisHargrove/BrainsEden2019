@@ -46,7 +46,15 @@ public class Highscores : MonoBehaviour
 
     private void Add_Name_Clicked()
     {
-        Add_Score(name_field.text, 100);
+        GameObject score_saver = GameObject.FindGameObjectWithTag("Data");
+        Score_Transfer score_t = score_saver.GetComponent<Score_Transfer>();
+
+        if (score_t != null)
+        {
+            Add_Score(name_field.text, score_t.player_score);
+        }
+
+        
     }
 
     public void Add_Score(string i_name, int i_score)
