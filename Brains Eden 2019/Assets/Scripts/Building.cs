@@ -63,12 +63,19 @@ public class Building : MonoBehaviour
         if(Health < MaxHealth * 0.5f) {
             CurrentDestruction = DestructionLevel.PARTIAL;
             tiny_flames.SetActive(true);
-            mesh_renderer.material = damaged_1;
+            if (mesh_renderer != null)
+            {
+                mesh_renderer.material = damaged_1;
+            }
+            
         }
         if(Health < MaxHealth * 0.25f) {
             CurrentDestruction = DestructionLevel.SEVERE;
             medium_flames.SetActive(true);
-            mesh_renderer.material = damaged_2;
+            if (mesh_renderer != null)
+            {
+                mesh_renderer.material = damaged_2;
+            }
         }
         if (Health <= 0) {
             CurrentDestruction = DestructionLevel.DESTROYED;
