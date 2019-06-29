@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
     public GameObject ExplosionParticle;
     public GameObject DissolveParticle;
 
+    public int ScoreGiven;
+
     public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
         ChainManager = chainManager;
@@ -95,6 +97,9 @@ public class Enemy : MonoBehaviour
                 ExplosionParticle.SetActive(true);
                 break;
         }
+
+        var ScoreTransfer = GameObject.FindGameObjectWithTag("Data").GetComponent<Score_Transfer>();
+        if (ScoreTransfer != null) ScoreTransfer.player_score += ScoreGiven;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -114,7 +119,7 @@ public class Enemy : MonoBehaviour
             if (enemy.chain == null && chain == null) {
                 //Then set the enemy to be the new head of the chain.
                 enemy.IsChainHead = true;
-                //Create a new chain to store the data.
+                //Create a new chain to store the data.d
                 enemy.chain = ChainManager.NewChain();
                 enemy.chain.Add(enemy);
                 enemy.RigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;

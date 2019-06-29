@@ -147,7 +147,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &8701023747594690013
 MonoBehaviour:
@@ -376,6 +376,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3966753399473622331}
     m_Modifications:
+    - target: {fileID: 1000011396044746, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
+      propertyPath: m_Name
+      value: ElectricalSparks
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012832170722, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0002999948
@@ -420,10 +424,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011396044746, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
-      propertyPath: m_Name
-      value: ElectricalSparks
-      objectReference: {fileID: 0}
     - target: {fileID: 4267998418013034, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -451,6 +451,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3966753399473622331}
     m_Modifications:
+    - target: {fileID: 100000, guid: 8bfbec8184b70bf4ba05d53027919e9f, type: 3}
+      propertyPath: m_Name
+      value: Bomb_Barrel
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8bfbec8184b70bf4ba05d53027919e9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -495,10 +499,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 8bfbec8184b70bf4ba05d53027919e9f, type: 3}
-      propertyPath: m_Name
-      value: Bomb_Barrel
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfbec8184b70bf4ba05d53027919e9f, type: 3}
 --- !u!4 &6300518541106515455 stripped
@@ -514,6 +514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3966753399473622331}
     m_Modifications:
+    - target: {fileID: 100000, guid: 38d7d3660d8951b4e99ed7f9a444427a, type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 38d7d3660d8951b4e99ed7f9a444427a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -557,10 +561,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 38d7d3660d8951b4e99ed7f9a444427a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 38d7d3660d8951b4e99ed7f9a444427a, type: 3}
-      propertyPath: m_Name
-      value: Belt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d7d3660d8951b4e99ed7f9a444427a, type: 3}
