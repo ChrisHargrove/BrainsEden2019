@@ -7,14 +7,14 @@ using System.Linq;
 [System.Serializable]
 public class Chain
 {
-    public List<Enemy> Enemies;
+    public HashSet<Enemy> Enemies;
 
     public Chain() {
-        Enemies = new List<Enemy>();
+        Enemies = new HashSet<Enemy>();
     }
 
-    public void Sort(Vector3 position) {
-        Enemies = Enemies.OrderByDescending(x => Vector3.Distance(position, x.transform.position)).ToList();
+    public void Sort(Vector3 position){
+        Enemies = new HashSet<Enemy>(Enemies.OrderByDescending(x => Vector3.Distance(position, x.transform.position)).ToList());
     }
 
     public void Add(Enemy enemy) {
@@ -24,7 +24,7 @@ public class Chain
 
 public class ChainManager : MonoBehaviour
 {
-    private List<Chain> Chains = new List<Chain>();
+    [SerializeField] private List<Chain> Chains = new List<Chain>();
 
     public Chain NewChain() {
         var chain = new Chain();
@@ -44,7 +44,7 @@ public class ChainManager : MonoBehaviour
         //While there are enemies break one and wait
         while(chain.Enemies.Count > 0)
         {
-            var enemyToPop = chain.Enemies[chain.Enemies.Count - 1];
+            var enemyToPop = chain.Enemies.ElementAt(chain.Enemies.Count - 1);
             enemyToPop.State = EnemyState.DIEING;
 
             yield return new WaitForSeconds(0.5f);

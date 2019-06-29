@@ -32,10 +32,14 @@ public class BuildingManager : MonoBehaviour
             return closestHouse;
         }
 
-        return Tower;
+        if(Tower != null) return Tower;
+
+        return null;
     }
 
     public void RemoveDeadBuildings() {
-        Houses.RemoveAll(delegate (Building b) { return b.CurrentDestruction == DestructionLevel.DESTROYED; });
+        if (Houses.Count > 0) {
+            Houses.RemoveAll(delegate (Building b) { return b.CurrentDestruction == DestructionLevel.DESTROYED; });
+        }
     }
 }

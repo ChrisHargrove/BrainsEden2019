@@ -41,9 +41,11 @@ public class Spell_Logic : MonoBehaviour
         var enemy = other.GetComponent<Enemy>();
         if(enemy != null)
         {
-            if(enemy.Type > EnemyType.NORMAL)
+            if(enemy.Type > EnemyType.NORMAL && enemy.chain != null)
             {
                 Debug.Log("Break The Chain! Fleetwood Mac");
+
+                enemy.PopChain();
             }
         }
     }

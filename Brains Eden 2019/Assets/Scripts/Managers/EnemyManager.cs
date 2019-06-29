@@ -25,6 +25,8 @@ public class EnemyManager : MonoBehaviour
 
     private List<Enemy> EnemyList = new List<Enemy>();
 
+    public bool WavesEnabled = true;
+
     void Start() {
         //When application is starting seed the random number generation with the current time.
         Random.InitState(System.DateTime.Now.GetHashCode());
@@ -32,16 +34,21 @@ public class EnemyManager : MonoBehaviour
     }
 
     void Update() {
-        //Spawn Enemy At required Intervals.
-        if(ElapsedTime >= SpawnInterval) {
-            ElapsedTime = 0;
-            SpawnWave();
-        }
-        else {
-            ElapsedTime += Time.deltaTime;
-        }
+        if (WavesEnabled)
+        {
+            //Spawn Enemy At required Intervals.
+            if (ElapsedTime >= SpawnInterval)
+            {
+                ElapsedTime = 0;
+                SpawnWave();
+            }
+            else
+            {
+                ElapsedTime += Time.deltaTime;
+            }
 
-        RemoveDeadEnemies();
+            RemoveDeadEnemies();
+        }
     }
 
     public void SpawnEnemy()

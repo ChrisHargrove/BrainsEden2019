@@ -23,7 +23,7 @@ public class Knockback_Effect : MonoBehaviour
         if (other.tag == "Spell")
         {
             if (rb != null) {
-                Vector3 force_dir = other.transform.forward * knockback_force;
+                Vector3 force_dir = other.attachedRigidbody.velocity.normalized * knockback_force;
                 rb.AddForce(force_dir);
             }
         }
