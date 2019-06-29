@@ -77,12 +77,11 @@ public class Player_Controls : MonoBehaviour
 
     void Player_Rotation()
     {
-        transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * Time.deltaTime * turn_speed);
+        transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X") + Input.GetAxis("X Look"), 0.0f) * Time.deltaTime * turn_speed);
     }
 
     Vector3 Controller_Movement_Controls()
     {
-
         return (transform.forward * Time.deltaTime * move_speed * -Input.GetAxis("Y Movement"))
             + (transform.right * Time.deltaTime * move_speed * Input.GetAxis("X Movement"));
     }
