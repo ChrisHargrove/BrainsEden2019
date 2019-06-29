@@ -36,10 +36,12 @@ public class Player_Controls : MonoBehaviour
 
         if (score_object_instance == null)
         {
+            Debug.Log("NULL");
             score_object = Instantiate(score_storage_object_prefab);
         }
         else
         {
+            Debug.Log("NOT NULL");
             score_object = score_object_instance;
         }
         score_comp = score_object.GetComponent<Score_Transfer>();

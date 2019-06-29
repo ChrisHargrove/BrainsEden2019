@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cebc3fde94a9c4a459c3b6a4e9f3f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score_storage_object_prefab: {fileID: 5195960010615097600, guid: 8c393846644cd874dbbd5bac91a66f6a,
+    type: 3}
   move_speed: 3
   gravity_force: 0.1
   max_jump_force: 5
@@ -133,3 +135,4 @@ MonoBehaviour:
     type: 3}
   fire_speed: 300
   spell_fire_offset: 1
+  score: 0

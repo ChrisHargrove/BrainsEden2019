@@ -11,6 +11,7 @@ public class Highscores : MonoBehaviour
     private List<int> scores_array;
     private List<string> name_array;
     private bool are_scores_loaded = false;
+    private bool has_score_updated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +50,10 @@ public class Highscores : MonoBehaviour
         GameObject score_saver = GameObject.FindGameObjectWithTag("Data");
         Score_Transfer score_t = score_saver.GetComponent<Score_Transfer>();
 
-        if (score_t != null)
+        if ((score_t != null) && (has_score_updated == false))
         {
             Add_Score(name_field.text, score_t.player_score);
+            has_score_updated = true;
         }
 
         
