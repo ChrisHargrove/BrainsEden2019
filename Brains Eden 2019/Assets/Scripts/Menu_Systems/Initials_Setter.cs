@@ -37,6 +37,17 @@ public class Initials_Setter : MonoBehaviour
         // Char selection system
         if (!is_input_detected)
         {
+            if (Input.GetAxis("Y Movement") > 0 || Input.GetKeyDown(KeyCode.S))
+            {
+                is_input_detected = true;
+                initials[initial_index]--;
+            }
+            else if (Input.GetAxis("Y Movement") < 0 || Input.GetKeyDown(KeyCode.W))
+            {
+                is_input_detected = true;
+                initials[initial_index]++;
+            }
+
             if (Input.GetAxis("X Movement") > 0 || Input.GetKeyDown(KeyCode.D))
             {
                 is_input_detected = true;
@@ -48,16 +59,7 @@ public class Initials_Setter : MonoBehaviour
                 initial_index--;
             }
 
-            if (Input.GetAxis("Y Movement") > 0 || Input.GetKeyDown(KeyCode.S))
-            {
-                is_input_detected = true;
-                initials[initial_index]--;
-            }
-            else if (Input.GetAxis("Y Movement") < 0 || Input.GetKeyDown(KeyCode.W))
-            {
-                is_input_detected = true;
-                initials[initial_index]++;
-            }
+
         }
         
         if ((Input.GetAxis("X Movement") == 0 && Input.GetAxis("Y Movement") == 0) &&
