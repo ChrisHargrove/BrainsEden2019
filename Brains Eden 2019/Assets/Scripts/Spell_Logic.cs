@@ -36,6 +36,15 @@ public class Spell_Logic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+
+        var enemy = other.GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            if(enemy.Type > EnemyType.NORMAL)
+            {
+                Debug.Log("Break The Chain! Fleetwood Mac");
+            }
+        }
     }
 }

@@ -22,11 +22,11 @@ public class Knockback_Effect : MonoBehaviour
     {
         if (other.tag == "Spell")
         {
-            if (rb != null)
-            {
-                Vector3 force_dir = (transform.position - other.transform.position).normalized * knockback_force;
+            if (rb != null) {
+                Vector3 force_dir = other.transform.forward * knockback_force;
                 rb.AddForce(force_dir);
             }
+
 
         }
     }

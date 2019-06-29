@@ -10,6 +10,12 @@ public enum EnemyState
     ATTACKING
 }
 
+public enum EnemyType
+{
+    NORMAL = 0,
+    BOMB
+}
+
 public class Enemy : MonoBehaviour
 {
     public NavMeshAgent Agent;
@@ -18,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     private Building CurrentTarget;
     private BuildingManager BuildingManager;
+    private ChainManager ChainManager;
 
     public bool IsDead = false;
     public int DamageDone = 2;
@@ -26,10 +33,13 @@ public class Enemy : MonoBehaviour
 
     private CharacterJoint joint;
     public bool IsChainHead = false;
-    public bool IsChained = false;
+    public Chain chain = null;
 
-    public void Initialize(BuildingManager buildingManager) {
+    public EnemyType Type;
+
+    public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
+        ChainManager = chainManager;
     }
 
     void Start() {
@@ -59,10 +69,16 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         var enemy = collision.collider.GetComponent<Enemy>();
-        if (enemy != null && !IsChained && !IsChainHead) {
-            if (!enemy.IsChainHead) enemy.IsChainHead = true;
+        if (enemy != null && chain != null && !IsChainHead) {
+            if (!enemy.IsChainHead) {
+                enemy.IsChainHead = true;
+                enemy.chain = ChainManager.NewChain();
+                enemy.chain.Add(enemy);
+            }
             AddJoint(enemy.GetComponent<Rigidbody>(), collision.GetContact(0).point);
-            IsChained = true;
+            Agent.enabled = false;
+            chain = enemy.chain;
+            chain.Add(this);
         }
     }
 

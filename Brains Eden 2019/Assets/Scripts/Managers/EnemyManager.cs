@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject EnemyPrefab;
     [Space]
     public BuildingManager BuildingManager;
+    public ChainManager ChainManager;
 
     private Camera Camera;
 
@@ -52,8 +53,9 @@ public class EnemyManager : MonoBehaviour
         var spawnPoint = new Vector3(pointInCircle.x, 0, pointInCircle.y);
 
         var enemy = Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
+        enemy.transform.SetParent(transform);
         enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
-        enemy.Initialize(BuildingManager);
+        enemy.Initialize(BuildingManager, ChainManager);
         EnemyList.Add(enemy);
 
     }
