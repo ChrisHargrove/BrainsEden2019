@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     private EnemyState State = EnemyState.NONE;
 
     private CharacterJoint joint;
+    public bool IsChainHead = false;
+    public bool IsChained = false;
 
     public void Initialize(BuildingManager buildingManager) {
         BuildingManager = buildingManager;
@@ -51,6 +53,16 @@ public class Enemy : MonoBehaviour
             Agent.ResetPath();
             CurrentTarget = other.gameObject.GetComponent<Building>();
             State = EnemyState.ATTACKING;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var enemy = collision.collider.GetComponent<Enemy>();
+        if (enemy != null && !IsChained && !IsChainHead) {
+            if (!enemy.IsChainHead) enemy.IsChainHead = true;
+            AddJoint(enemy.GetComponent<Rigidbody>(), collision.GetContact(0).point);
+            IsChained = true;
         }
     }
 

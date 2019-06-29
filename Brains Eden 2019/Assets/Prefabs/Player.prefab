@@ -133,6 +133,6 @@ MonoBehaviour:
   turn_speed: 100
   attack_projectile: {fileID: 806286389264837358, guid: e7cb19b9413431647a25bfa429f5a664,
     type: 3}
-  fire_speed: 300
+  fire_speed: 600
   spell_fire_offset: 1
   score: 0
