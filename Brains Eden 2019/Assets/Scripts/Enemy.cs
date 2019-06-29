@@ -99,11 +99,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.GetComponent<Building>() != null) {
-            if (Agent.enabled != false)
-            {
-                Agent.ResetPath();
-            }
-            
+            if(Agent.enabled) Agent.ResetPath();
             CurrentTarget = other.gameObject.GetComponent<Building>();
             State = EnemyState.ATTACKING;
         }
