@@ -19,9 +19,9 @@ public class Building : MonoBehaviour
     [SerializeField] AnimationCurve destruction_curve;
     [SerializeField] private float shake_severity;
     private Vector3 default_position;
-    private float curve_progress = 0.0f;
-    private float sink_progress = 0.0f;
-    private bool has_destruction_begun = false;
+    [SerializeField] private float curve_progress = 0.0f;
+    [SerializeField] private float sink_progress = 0.0f;
+    [SerializeField] private bool has_destruction_begun = false;
     //
 
     [Range(1, 100)] public int Health = 100;
