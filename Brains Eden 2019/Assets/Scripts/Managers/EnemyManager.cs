@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     private const int DEFAULT_WAVE_SIZE = 6;
 
     public GameObject EnemyPrefab;
+    public List<GameObject> ChainBreakerPrefabs = new List<GameObject>();
     [Space]
     public BuildingManager BuildingManager;
     public ChainManager ChainManager;
@@ -41,8 +42,6 @@ public class EnemyManager : MonoBehaviour
         }
 
         RemoveDeadEnemies();
-        CheckForSingleEnemy();
-
     }
 
     public void SpawnEnemy()
@@ -57,13 +56,29 @@ public class EnemyManager : MonoBehaviour
         enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
         enemy.Initialize(BuildingManager, ChainManager);
         EnemyList.Add(enemy);
+    }
 
+    public void SpawnChainBreaker()
+    {
+        var pointInCircle = Random.insideUnitCircle;
+        pointInCircle = pointInCircle.normalized * SpawnRange;
+
+        var spawnPoint = new Vector3(pointInCircle.x, 0, pointInCircle.y);
+
+        var enemy = Instantiate(ChainBreakerPrefabs.Random(), spawnPoint, Quaternion.identity).GetComponent<Enemy>();
+        enemy.transform.SetParent(transform);
+        enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
+        enemy.Initialize(BuildingManager, ChainManager);
+        EnemyList.Add(enemy);
     }
 
     public void SpawnWave()
     {
         for(int i = 0; i < DEFAULT_WAVE_SIZE + WaveCountIncrease * CurrentWave; i++) {
             SpawnEnemy();
+        }
+        for(int i = 0; i <= CurrentWave; i++) {
+            SpawnChainBreaker();
         }
         CurrentWave++;
     }
@@ -77,10 +92,4 @@ public class EnemyManager : MonoBehaviour
         EnemyList.RemoveAll(delegate (Enemy e) { return e.IsDead; });
     }
 
-    public void CheckForSingleEnemy()
-    {
-        if(EnemyList.Count == 1) {
-            SpawnEnemy();
-        }
-    }
 }

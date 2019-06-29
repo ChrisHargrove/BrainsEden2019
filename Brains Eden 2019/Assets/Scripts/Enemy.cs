@@ -7,7 +7,8 @@ public enum EnemyState
 {
     NONE = 0,
     MOVING,
-    ATTACKING
+    ATTACKING,
+    DIEING
 }
 
 public enum EnemyType
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     public bool IsDead = false;
     public int DamageDone = 2;
 
-    private EnemyState State = EnemyState.NONE;
+    public EnemyState State = EnemyState.NONE;
 
     private CharacterJoint joint;
     public bool IsChainHead = false;
@@ -52,7 +53,7 @@ public class Enemy : MonoBehaviour
             if(CurrentTarget != null) CurrentTarget.Damage(DamageDone);
         }
 
-        if(CurrentTarget == null) {
+        if(CurrentTarget == null && Agent.enabled) {
             GoTo(BuildingManager.FindClosestHouse(transform.position).transform);
         }
         Animator.SetInteger("State", (int)State);

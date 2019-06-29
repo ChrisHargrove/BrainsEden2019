@@ -26,8 +26,6 @@ public class Knockback_Effect : MonoBehaviour
                 Vector3 force_dir = other.transform.forward * knockback_force;
                 rb.AddForce(force_dir);
             }
-
-
         }
     }
 }
