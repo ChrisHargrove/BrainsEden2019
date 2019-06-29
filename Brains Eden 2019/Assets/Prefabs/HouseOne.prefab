@@ -47,6 +47,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentDestruction: 0
+  destruction_curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.012500763
+      inSlope: 1.0259498
+      outSlope: 1.0259498
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49165332
+      value: 0.5169124
+      inSlope: -0.0036771148
+      outSlope: -0.0036771148
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.012500763
+      inSlope: 0.014707677
+      outSlope: 0.014707677
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.425
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shake_severity: 0.7
+  building_height: 5
   Health: 100
 --- !u!65 &2214768242020496153
 BoxCollider:

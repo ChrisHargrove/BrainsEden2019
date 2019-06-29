@@ -47,6 +47,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentDestruction: 0
+  destruction_curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0041656494
+      value: 0
+      inSlope: 1.7938269
+      outSlope: 1.7938269
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4958421
+      value: 0.89692736
+      inSlope: 0.008553386
+      outSlope: 0.008553386
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0041809
+      value: -0.006248474
+      inSlope: -1.7767202
+      outSlope: -1.7767202
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shake_severity: 0.7
+  building_height: 25
   Health: 100
 --- !u!208 &5671090756286949147
 NavMeshObstacle:
@@ -72,7 +107,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5671090756286949146}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.12, z: 0.12}
