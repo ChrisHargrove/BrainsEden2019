@@ -81,9 +81,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   shake_severity: 0.7
-  curve_progress: 0
-  sink_progress: 0
-  has_destruction_begun: 0
+  building_height: 25
   Health: 100
 --- !u!208 &5671090756286949147
 NavMeshObstacle:

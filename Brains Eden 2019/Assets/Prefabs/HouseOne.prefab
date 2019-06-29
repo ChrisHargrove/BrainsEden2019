@@ -81,6 +81,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   shake_severity: 0.7
+  building_height: 5
   Health: 100
 --- !u!65 &2214768242020496153
 BoxCollider:

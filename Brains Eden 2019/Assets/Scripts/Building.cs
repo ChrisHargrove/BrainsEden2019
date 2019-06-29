@@ -18,10 +18,11 @@ public class Building : MonoBehaviour
     // Destruction animation stuff
     [SerializeField] AnimationCurve destruction_curve;
     [SerializeField] private float shake_severity;
+    [SerializeField] private float building_height;
     private Vector3 default_position;
-    [SerializeField] private float curve_progress = 0.0f;
-    [SerializeField] private float sink_progress = 0.0f;
-    [SerializeField] private bool has_destruction_begun = false;
+    private float curve_progress = 0.0f;
+    private float sink_progress = 0.0f;
+    private bool has_destruction_begun = false;
     //
 
     [Range(1, 100)] public int Health = 100;
@@ -73,7 +74,7 @@ public class Building : MonoBehaviour
 
     private IEnumerator Shake()
     {
-        while(sink_progress <= 5.0f)
+        while(sink_progress <= building_height)
         {
             curve_progress += 0.1f;
             sink_progress += 0.02f;
