@@ -9,17 +9,21 @@ public class Fail_Transition : MonoBehaviour
     // When the object is destroyed the script will change to the fail state
     [SerializeField] private GameObject tower_object;
     [SerializeField] private string fail_scene_name;
+    private bool has_tower_been_set = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (tower_object == null)
+        {
+            has_tower_been_set = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tower_object == null)
+        if ((tower_object == null) && (has_tower_been_set))
         {
             SceneManager.LoadScene(fail_scene_name);
         }
