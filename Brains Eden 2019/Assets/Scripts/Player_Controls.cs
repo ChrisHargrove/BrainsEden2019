@@ -76,7 +76,7 @@ public class Player_Controls : MonoBehaviour
 
     void Attack_Spell(GameObject i_proj,Vector3 fire_direction)
     {
-        GameObject created_obj = Instantiate(attack_projectile);
+        GameObject created_obj = Instantiate(i_proj);
         Rigidbody rb = created_obj.GetComponent<Rigidbody>();
         created_obj.transform.position = transform.position + (fire_direction * spell_fire_offset);
         rb.AddForce(fire_direction * fire_speed);
