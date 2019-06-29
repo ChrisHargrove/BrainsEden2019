@@ -24,7 +24,14 @@ public class Initials_Setter : MonoBehaviour
 
     private bool is_input_detected = false;
 
-    // Update is called once per frame
+    void Start()
+    {
+        for (int i = 0; i < initials.Length; i++)
+        {
+            initials[i] = 0;
+        }
+    }
+
     void Update()
     {
         current_time += Time.deltaTime;

@@ -17,7 +17,7 @@ public class Highscores : MonoBehaviour
     void Start()
     {
         // Clears highscores on start, delete this when not testing or highscores will be lost
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
 
         // Unlocks the cursor incase it is locked
         Cursor.lockState = CursorLockMode.None;
