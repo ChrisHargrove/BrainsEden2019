@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
 
     private EnemyState State = EnemyState.NONE;
 
+    private CharacterJoint joint;
+
     public void Initialize(BuildingManager buildingManager) {
         BuildingManager = buildingManager;
     }
@@ -60,6 +62,46 @@ public class Enemy : MonoBehaviour
     public void GoTo(Vector3 location) {
         Agent.SetDestination(location);
         State = EnemyState.MOVING;
+    }
+
+    private void AddJoint(Rigidbody ConnectedBody, Vector3 hitPoint)
+    {
+        //Add Character Joint to Enemy
+        joint = gameObject.AddComponent<CharacterJoint>();
+        joint.connectedBody = ConnectedBody;
+        //Setup axis for the rotations
+        joint.axis = new Vector3(0, 0, -1);
+        joint.swingAxis = new Vector3(0, 1, 0);
+
+        //Set Anchoor position for the joint
+        joint.anchor = transform.InverseTransformPoint(hitPoint);
+
+        //Set all swing limits
+        joint.lowTwistLimit = new SoftJointLimit {
+            limit = 0,
+            bounciness = 0,
+            contactDistance = 0
+        }; 
+        joint.highTwistLimit = new SoftJointLimit {
+            limit = 0,
+            bounciness = 0,
+            contactDistance = 0
+        };
+
+        joint.swingLimitSpring = new SoftJointLimitSpring {
+            spring = 500f,
+            damper = 0
+        };
+        joint.swing1Limit = new SoftJointLimit {
+            limit = 106,
+            bounciness = 0,
+            contactDistance = 0
+        };
+        joint.swing2Limit = new SoftJointLimit {
+            limit = 0,
+            bounciness = 0,
+            contactDistance = 0
+        };
     }
 
 }
