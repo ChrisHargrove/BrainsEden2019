@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class highscore_show : MonoBehaviour
 {
-    [SerializeField] Vector3 default_position;
     [SerializeField] Vector3 highscore_offset = new Vector3(0.0f, 5000.0f, 0.0f);
     private Vector3 current_position = new Vector3();
 
@@ -19,7 +18,6 @@ public class highscore_show : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        default_position = transform.position;
         back_button.onClick.AddListener(Back_To_Menu);
     }
 
@@ -28,12 +26,12 @@ public class highscore_show : MonoBehaviour
     {
         if (are_scores_shown)
         {
-            transform.position = Vector3.Lerp(transform.position, default_position + highscore_offset, 0.2f);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0,0,0) + highscore_offset, 0.2f);
             event_sys.SetSelectedGameObject(back_button.gameObject);
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, default_position, 0.2f);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0, 0, 0), 0.2f);
         }
         
     }
