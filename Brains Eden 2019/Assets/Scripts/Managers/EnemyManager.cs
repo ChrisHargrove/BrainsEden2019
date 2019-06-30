@@ -39,6 +39,15 @@ public class EnemyManager : MonoBehaviour
 
     void Update() {
         EnemyList.RemoveAll(x => x == null);
+
+        if ((EnemyList.Count == 0) && (!FirstRun))
+        {
+            if (ElapsedTime < SpawnInterval - 5.0f)
+            {
+                ElapsedTime = SpawnInterval - 5.0f;
+            }
+        }
+
         if (WavesEnabled && EnemyList.Count < EnemyCapLimit) {
             if (FirstRun) {
                 SpawnWave();
