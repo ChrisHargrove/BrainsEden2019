@@ -62,15 +62,18 @@ public class Enemy : MonoBehaviour
 
     void Update() {
 
-        if(CurrentTarget == null && Agent.enabled && BuildingManager != null) {
+        if (State == EnemyState.DIEING)
+        {
+            Death();
+        }
+
+        if (CurrentTarget == null && Agent.enabled && BuildingManager != null) {
             var building = BuildingManager.FindClosestHouse(transform.position);
             if (building != null) GoTo(building.transform);
         }
         Animator.SetInteger("State", (int)State);
 
-        if(State == EnemyState.DIEING) {
-            Death();
-        }
+
     }
 
     public void Attack()

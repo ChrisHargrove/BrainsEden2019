@@ -14,7 +14,6 @@ public class Kill_Spell_Effect : MonoBehaviour
             {
                 enemy_script.State = EnemyState.DIEING;
             }
-            
         }
     }
 }

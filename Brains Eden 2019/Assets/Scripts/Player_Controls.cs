@@ -33,6 +33,7 @@ public class Player_Controls : MonoBehaviour
     [SerializeField] private float spell_fire_offset; // The distance infront of the player which the projectile spawns
 
     [SerializeField] public int score;
+    [SerializeField] public bool is_secondary_attack_enabled = true;
 
     private bool is_shooting = false;
 
@@ -80,9 +81,12 @@ public class Player_Controls : MonoBehaviour
 
         if ((Input.GetMouseButtonDown(1)) || ((Input.GetAxis("Shoot_Secondary") > 0) && (!is_shooting)))
         {
-            is_shooting = true;
-            Attack_Spell(secondary_attack_projectile,transform.forward);
-            State = PlayerState.ATTACK;
+            if (is_secondary_attack_enabled)
+            {
+                is_shooting = true;
+                Attack_Spell(secondary_attack_projectile,transform.forward);
+                State = PlayerState.ATTACK;
+            }
         }
 
         if (Input.GetAxis("Shoot") == 0 && Input.GetAxis("Shoot_Secondary") == 0)
