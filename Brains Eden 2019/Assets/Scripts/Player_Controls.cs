@@ -44,10 +44,14 @@ public class Player_Controls : MonoBehaviour
 
     private Vector3 movement_direction = new Vector3();
 
+    private SoundManager soundManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
         char_con = GetComponent<CharacterController>();
 
         GameObject score_object_instance = GameObject.FindGameObjectWithTag("Data");
@@ -77,6 +81,7 @@ public class Player_Controls : MonoBehaviour
             is_shooting = true;
             Attack_Spell(attack_projectile,transform.forward);
             State = PlayerState.ATTACK;
+            soundManager.PlayForcePush();
         }
 
         if ((Input.GetMouseButtonDown(1)) || ((Input.GetAxis("Shoot_Secondary") > 0) && (!is_shooting)))
@@ -86,6 +91,7 @@ public class Player_Controls : MonoBehaviour
                 is_shooting = true;
                 Attack_Spell(secondary_attack_projectile,transform.forward);
                 State = PlayerState.ATTACK;
+                soundManager.PlayFireball();
             }
         }
 

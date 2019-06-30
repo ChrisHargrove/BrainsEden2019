@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour
 
     public float DistanceFromBuilding = 350f;
 
+    private SoundManager soundManager;
+
     public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
         ChainManager = chainManager;
@@ -60,6 +62,8 @@ public class Enemy : MonoBehaviour
             if (building != null) GoTo(building.transform);
         }
         chain = null;
+
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     void Update() {
@@ -92,6 +96,8 @@ public class Enemy : MonoBehaviour
 
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
+                soundManager.PlayExplosion(transform.position);
+
                 break;
             case EnemyType.HANS:
                 if (CurrentTarget != null) CurrentTarget.Damage(DamageDone);
@@ -112,6 +118,7 @@ public class Enemy : MonoBehaviour
             case EnemyType.BOMB:
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
+                soundManager.PlayExplosion(transform.position);
                 break;
             case EnemyType.HANS:
                 Mesh.SetActive(false);
