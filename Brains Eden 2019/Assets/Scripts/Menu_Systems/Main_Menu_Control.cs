@@ -24,6 +24,8 @@ public class Main_Menu_Control : MonoBehaviour
         start_button.onClick.AddListener(Start_Clicked);
         scores_button.onClick.AddListener(Scores_Clicked);
         quit_button.onClick.AddListener(Quit_Clicked);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
