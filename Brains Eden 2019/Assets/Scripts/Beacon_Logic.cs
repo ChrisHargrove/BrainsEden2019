@@ -10,7 +10,7 @@ public class Beacon_Logic : MonoBehaviour
     private bool is_beacon_showing = false;
 
     [SerializeField] private float beacon_shine_time = 5.0f;
-    private float current_time = 0.0f;
+    [SerializeField] private float current_time = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,24 +23,26 @@ public class Beacon_Logic : MonoBehaviour
         if (this_building.Health != last_health)
         {
             is_beacon_showing = true;
+            current_time = 0.0f;
+            last_health = this_building.Health;
+        }
+        else
+        {
+            is_beacon_showing = false;
         }
 
         if (is_beacon_showing)
         {
-            current_time += Time.deltaTime;
-
             beacon_mesh.enabled = true;
-
-            if (current_time >= beacon_shine_time)
-            {
-                is_beacon_showing = false;
-            }
-
         }
         else
         {
-            beacon_mesh.enabled = false;
-            current_time = 0.0f;
+            current_time += Time.deltaTime;
+            if (current_time >= beacon_shine_time)
+            {
+                
+                beacon_mesh.enabled = false;
+            }
         }
     }
 }
