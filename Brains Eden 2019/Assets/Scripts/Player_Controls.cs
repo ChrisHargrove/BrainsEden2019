@@ -108,7 +108,7 @@ public class Player_Controls : MonoBehaviour
     void Player_Rotation()
     {
         transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X") + Input.GetAxis("X Look"), 0.0f) * Time.deltaTime * turn_speed);
-        Rotator.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * Time.deltaTime * turn_speed * 0.1f);
+        Rotator.Rotate(new Vector3(Input.GetAxis("Mouse Y") + Input.GetAxis("Y Look"), 0.0f, 0.0f) * Time.deltaTime * turn_speed * 0.1f);
 
 
         float minRotation = 0;
@@ -128,8 +128,8 @@ public class Player_Controls : MonoBehaviour
 
     Vector3 Controller_Movement_Controls()
     {
-        return (transform.forward * Time.deltaTime * move_speed * -Input.GetAxis("Y Movement"))
-            + (transform.right * Time.deltaTime * move_speed * Input.GetAxis("X Movement"));
+        return (transform.forward * Time.deltaTime * (move_speed/2) * -Input.GetAxis("Y Movement"))
+            + (transform.right * Time.deltaTime * (move_speed / 2) * Input.GetAxis("X Movement"));
     }
 
     void Movement_Controls()
@@ -138,25 +138,25 @@ public class Player_Controls : MonoBehaviour
         State = PlayerState.IDLE;
 
         // Forward and back
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetAxis("Y Movement") < 0)
         {
             movement_direction += transform.forward * Time.deltaTime * move_speed;
             State = PlayerState.WALKING_FORWARD;
 
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetAxis("Y Movement") < 0)
         {
             movement_direction -= transform.forward * Time.deltaTime * move_speed;
             State = PlayerState.WALKING_BACKWARD;
         }
 
         // Left and right
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetAxis("X Movement") > 0)
         {
             movement_direction += transform.right * Time.deltaTime * move_speed;
             State = PlayerState.STRAFE_RIGHT;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetAxis("X Movement") < 0)
         {
             movement_direction -= transform.right * Time.deltaTime * move_speed;
             State = PlayerState.STRAFE_LEFT;
