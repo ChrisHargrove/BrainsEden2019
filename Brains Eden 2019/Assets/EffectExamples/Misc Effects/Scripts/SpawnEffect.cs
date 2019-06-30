@@ -23,10 +23,10 @@ public class SpawnEffect : MonoBehaviour {
         _renderer = GetComponent<Renderer>();
         ps = GetComponentInChildren <ParticleSystem>();
 
-        var main = ps.main;
-        main.duration = spawnEffectTime;
+        //var main = ps.main;
+        //main.duration = spawnEffectTime;
 
-        ps.Play();
+        //ps.Play();
         if (GoopSpray != null) GoopSpray.SetActive(false);
 
     }
