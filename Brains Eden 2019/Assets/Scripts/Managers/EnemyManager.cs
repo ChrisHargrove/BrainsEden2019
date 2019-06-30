@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject EnemyPrefab;
     public List<GameObject> ChainBreakerPrefabs = new List<GameObject>();
+    public int EnemyAwardingScore;
+    public int ChainBreakerAwardingScore;
     [Space]
     public BuildingManager BuildingManager;
     public ChainManager ChainManager;
@@ -26,6 +28,8 @@ public class EnemyManager : MonoBehaviour
     private List<Enemy> EnemyList = new List<Enemy>();
 
     public bool WavesEnabled = true;
+    private bool FirstRun = true;
+    public int EnemyCapLimit = 50;
 
     void Start() {
         //When application is starting seed the random number generation with the current time.
@@ -34,21 +38,21 @@ public class EnemyManager : MonoBehaviour
     }
 
     void Update() {
-        if (WavesEnabled)
-        {
+        if (WavesEnabled && EnemyList.Count < EnemyCapLimit) {
+            if (FirstRun) {
+                SpawnWave();
+                FirstRun = false;
+            }
             //Spawn Enemy At required Intervals.
-            if (ElapsedTime >= SpawnInterval)
-            {
+            if (ElapsedTime >= SpawnInterval) {
                 ElapsedTime = 0;
                 SpawnWave();
             }
-            else
-            {
+            else {
                 ElapsedTime += Time.deltaTime;
             }
-
-            RemoveDeadEnemies();
         }
+        RemoveDeadEnemies();
     }
 
     public void SpawnEnemy()
@@ -60,6 +64,7 @@ public class EnemyManager : MonoBehaviour
 
         var enemy = Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         enemy.transform.SetParent(transform);
+        enemy.ScoreGiven = EnemyAwardingScore;
         enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
         enemy.Initialize(BuildingManager, ChainManager);
         EnemyList.Add(enemy);
@@ -74,6 +79,7 @@ public class EnemyManager : MonoBehaviour
 
         var enemy = Instantiate(ChainBreakerPrefabs.Random(), spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         enemy.transform.SetParent(transform);
+        enemy.ScoreGiven = ChainBreakerAwardingScore;
         enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
         enemy.Initialize(BuildingManager, ChainManager);
         EnemyList.Add(enemy);

@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     public GameObject DissolveParticle;
 
     public int ScoreGiven;
+    public float chainScoreMultiplier = 2f;
 
     public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
@@ -99,7 +100,11 @@ public class Enemy : MonoBehaviour
         }
 
         var ScoreTransfer = GameObject.FindGameObjectWithTag("Data").GetComponent<Score_Transfer>();
-        if (ScoreTransfer != null) ScoreTransfer.player_score += ScoreGiven;
+        if (ScoreTransfer != null) {
+            var awaredScore = ScoreGiven;
+            if (DeathType > EnemyType.NORMAL) awaredScore = (int)(awaredScore * chainScoreMultiplier);
+            ScoreTransfer.player_score += ScoreGiven;
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
