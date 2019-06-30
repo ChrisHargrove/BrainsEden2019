@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     [Range(1, 20)] public int WaveCountIncrease = 1;
 
-    private float ElapsedTime = 0;
+    public float ElapsedTime = 0;
     private int CurrentWave = 0;
 
     private List<Enemy> EnemyList = new List<Enemy>();
