@@ -14,6 +14,7 @@ public class Chain
     }
 
     public void Sort(Vector3 position){
+        Enemies.RemoveAll(x => x != null);
         Enemies = Enemies.OrderByDescending(x => Vector3.Distance(position, x.transform.position)).ToList();
     }
 
