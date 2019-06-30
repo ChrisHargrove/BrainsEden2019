@@ -10,6 +10,8 @@ public class Main_Menu_Control : MonoBehaviour
     [SerializeField] Button scores_button;
     [SerializeField] Button quit_button;
 
+    [SerializeField] highscore_show score_shower;
+
     [SerializeField] string game_scene_name;
 
     [SerializeField] UnityEngine.EventSystems.EventSystem event_sys;
@@ -44,7 +46,7 @@ public class Main_Menu_Control : MonoBehaviour
     }
     void Scores_Clicked()
     {
-        // Show scores
+        score_shower.are_scores_shown = true;
     }
     void Quit_Clicked()
     {

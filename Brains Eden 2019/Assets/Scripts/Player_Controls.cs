@@ -144,7 +144,7 @@ public class Player_Controls : MonoBehaviour
             State = PlayerState.WALKING_FORWARD;
 
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetAxis("Y Movement") < 0)
+        else if (Input.GetKey(KeyCode.S) || Input.GetAxis("Y Movement") > 0)
         {
             movement_direction -= transform.forward * Time.deltaTime * move_speed;
             State = PlayerState.WALKING_BACKWARD;
