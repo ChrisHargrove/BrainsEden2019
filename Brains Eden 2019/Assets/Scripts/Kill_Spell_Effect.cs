@@ -8,7 +8,7 @@ public class Kill_Spell_Effect : MonoBehaviour
     {
         if (other.tag == "Damage_Spell")
         {
-            Enemy enemy_script = other.gameObject.GetComponent<Enemy>();
+            Enemy enemy_script = gameObject.GetComponent<Enemy>();
 
             if (enemy_script != null)
             {
