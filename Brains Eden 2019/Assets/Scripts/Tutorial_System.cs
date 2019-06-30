@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class Tutorial_System : MonoBehaviour
 {
     [SerializeField] ChainManager chain_man;
-    [SerializeField] GameObject stick_text;
-    [SerializeField] GameObject stick_bombs_text;
-    [SerializeField] GameObject damage_text;
-    [SerializeField] GameObject end_text;
+    [SerializeField] GameObject StageOne;
+    [SerializeField] GameObject StageTwo;
+    [SerializeField] GameObject StageThree;
+    [SerializeField] GameObject TutorialEnd;
 
     [SerializeField] GameObject normal_gremil;
     [SerializeField] GameObject bomb_gremil;
@@ -28,15 +28,15 @@ public class Tutorial_System : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stick_text.SetActive(false);
-        stick_bombs_text.SetActive(false);
-        damage_text.SetActive(false);
-        end_text.SetActive(false);
+        StageOne.SetActive(false);
+        StageTwo.SetActive(false);
+        StageThree.SetActive(false);
+        TutorialEnd.SetActive(false);
     }
 
     void Stick_State()
     {
-        stick_text.SetActive(true);
+        StageOne.SetActive(true);
 
         if (chain_man.Chains.Count >= 1)
         {
@@ -54,8 +54,8 @@ public class Tutorial_System : MonoBehaviour
             has_state_inited = true;
         }
 
-        stick_text.SetActive(false);
-        stick_bombs_text.SetActive(true);
+        StageOne.SetActive(false);
+        StageTwo.SetActive(true);
 
         if (chain_man.Chains.Count <= 0)
         {
@@ -75,8 +75,8 @@ public class Tutorial_System : MonoBehaviour
             has_state_inited = true;
         }
 
-        stick_bombs_text.SetActive(false);
-        damage_text.SetActive(true);
+        StageTwo.SetActive(false);
+        StageThree.SetActive(true);
 
         if (gremil_loner == null)
         {
@@ -90,8 +90,8 @@ public class Tutorial_System : MonoBehaviour
     {
         current_time += Time.deltaTime;
 
-        damage_text.SetActive(false);
-        end_text.SetActive(true);
+        StageThree.SetActive(false);
+        TutorialEnd.SetActive(true);
 
         if (current_time >= end_message_time)
         {
