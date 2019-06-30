@@ -882,7 +882,7 @@ MonoBehaviour:
   start_button: {fileID: 1924371432}
   scores_button: {fileID: 1498312398}
   quit_button: {fileID: 447408442}
-  game_scene_name: GameTest
+  game_scene_name: Tutorial
   event_sys: {fileID: 1188754874}
 --- !u!1 &1498312396
 GameObject:

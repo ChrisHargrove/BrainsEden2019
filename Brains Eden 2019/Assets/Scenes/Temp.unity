@@ -13508,7 +13508,7 @@ PrefabInstance:
     - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
         type: 3}
       propertyPath: ChainBreakerPrefabs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
         type: 3}
@@ -13535,6 +13535,22 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnInterval
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
+        type: 3}
+      propertyPath: ChainBreakerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 9003329913089833135, guid: 3a568beb2e02238488bf49451e2bbe5d,
+        type: 3}
+    - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
+        type: 3}
+      propertyPath: EnemyAwardingScore
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951912302773951122, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d,
+        type: 3}
+      propertyPath: ChainBreakerAwardingScore
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42bdf7e6b8042274cac3d5ac5ffe1e8d, type: 3}
@@ -24718,9 +24734,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8aaa15f4ec184943ab160c2b94f8782, type: 3}
---- !u!1 &782278143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5669111755567770670, guid: 09d1b06a29ab8904e81e8c151a3c915e,
+--- !u!4 &782278149 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5669111755567770836, guid: 09d1b06a29ab8904e81e8c151a3c915e,
     type: 3}
   m_PrefabInstance: {fileID: 1015751867}
   m_PrefabAsset: {fileID: 0}
@@ -28107,6 +28123,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 397633447}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &879651149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879651150}
+  m_Layer: 0
+  m_Name: PitchRotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &879651150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879651149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 782278149}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &880463556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31776,6 +31822,11 @@ PrefabInstance:
       propertyPath: tower_object
       value: 
       objectReference: {fileID: 278915309}
+    - target: {fileID: 5669111755567770665, guid: 09d1b06a29ab8904e81e8c151a3c915e,
+        type: 3}
+      propertyPath: Rotator
+      value: 
+      objectReference: {fileID: 879651150}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d1b06a29ab8904e81e8c151a3c915e, type: 3}
 --- !u!1001 &1015866742
@@ -63694,7 +63745,7 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_GateFitMode: 2
@@ -63707,7 +63758,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -63751,8 +63802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8052e871c84bddc4aa83381e7c32fa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_object: {fileID: 782278143}
-  camera_distance: 4
+  target_object: {fileID: 879651149}
+  camera_distance: 15
 --- !u!1001 &2005230672
 PrefabInstance:
   m_ObjectHideFlags: 0
