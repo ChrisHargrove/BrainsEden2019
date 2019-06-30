@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     void Update() {
+        EnemyList.RemoveAll(x => x == null);
         if (WavesEnabled && EnemyList.Count < EnemyCapLimit) {
             if (FirstRun) {
                 SpawnWave();
