@@ -62,9 +62,13 @@ public class Enemy : MonoBehaviour
 
     void Update() {
 
-        if (State == EnemyState.DIEING)
-        {
+        if (State == EnemyState.DIEING) {
             Death();
+        }
+
+        if (Vector3.Distance(CurrentTarget.transform.position, transform.position) > 2) {
+            CurrentTarget = null;
+            Agent.enabled = true;
         }
 
         if (CurrentTarget == null && Agent.enabled && BuildingManager != null) {
@@ -73,7 +77,7 @@ public class Enemy : MonoBehaviour
         }
         Animator.SetInteger("State", (int)State);
 
-
+        
     }
 
     public void Attack()

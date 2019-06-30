@@ -66,7 +66,7 @@ MonoBehaviour:
   Type: 0
   DeathType: 0
   ExplosionParticle: {fileID: 1121191871945039}
-  DissolveParticle: {fileID: 0}
+  DissolveParticle: {fileID: 5981495381798112096}
   ScoreGiven: 0
   chainScoreMultiplier: 2
 --- !u!195 &1403010073485815826
@@ -356,6 +356,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 02ac252d1b74abe4d8da3cc928edc401, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02ac252d1b74abe4d8da3cc928edc401, type: 3}
+--- !u!1 &5981495381798112096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 02ac252d1b74abe4d8da3cc928edc401,
+    type: 3}
+  m_PrefabInstance: {fileID: 5981495381798079938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5981495381797689152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 02ac252d1b74abe4d8da3cc928edc401,
