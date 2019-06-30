@@ -509,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &130768080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &288155488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,8 +1538,8 @@ MonoBehaviour:
   chain_man: {fileID: 2133602881}
   StageOne: {fileID: 906579988}
   StageTwo: {fileID: 288155487}
-  StageThree: {fileID: 0}
-  TutorialEnd: {fileID: 0}
+  StageThree: {fileID: 911115788}
+  TutorialEnd: {fileID: 130768079}
   normal_gremil: {fileID: 1403010073485815829, guid: 253cdd4d519b8b94dbdaffff67f1c5db,
     type: 3}
   bomb_gremil: {fileID: 5191406308536508069, guid: b80f66be578d9e14288b242f8cefdd97,
@@ -2939,7 +2939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &911115789
 RectTransform:
   m_ObjectHideFlags: 0
