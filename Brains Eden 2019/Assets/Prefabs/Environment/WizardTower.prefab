@@ -119,7 +119,7 @@ MonoBehaviour:
   damaged_1: {fileID: 0}
   damaged_2: {fileID: 0}
   mesh_renderer: {fileID: 0}
-  Health: 100
+  Health: 20
 --- !u!208 &5671090756286949147
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.2, y: 5.2, z: 5.2}
+  m_Size: {x: 6, y: 6, z: 6}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &6448102881534353040
 GameObject:

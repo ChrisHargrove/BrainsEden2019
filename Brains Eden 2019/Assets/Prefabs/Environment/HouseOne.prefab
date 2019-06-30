@@ -119,7 +119,7 @@ MonoBehaviour:
   damaged_1: {fileID: 2100000, guid: 9c2d496fcd7e2434bbc9ded3b40755b8, type: 2}
   damaged_2: {fileID: 2100000, guid: a517d1b46bfe4ba42903a4e7092a55bc, type: 2}
   mesh_renderer: {fileID: 2035910985964422776}
-  Health: 100
+  Health: 14
 --- !u!65 &2214768242020496153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   this_building: {fileID: 2214768242020496133}
   beacon_mesh: {fileID: 5211439077130851007}
   beacon_shine_time: 5
+  current_time: 0
 --- !u!1001 &849230990669425534
 PrefabInstance:
   m_ObjectHideFlags: 0

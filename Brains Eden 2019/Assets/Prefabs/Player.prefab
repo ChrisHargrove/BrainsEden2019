@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score_storage_object_prefab: {fileID: 5195960010615097600, guid: 8c393846644cd874dbbd5bac91a66f6a,
     type: 3}
-  move_speed: 6
+  move_speed: 8
   gravity_force: 0.1
   max_jump_force: 5
   jump_falloff: 0.1
