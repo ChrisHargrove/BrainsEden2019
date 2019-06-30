@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     public Animator Animator;
     public GameObject Mesh;
 
-    private Building CurrentTarget;
+    public Building CurrentTarget;
     private BuildingManager BuildingManager;
     [SerializeField] private ChainManager ChainManager;
 
@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour
     public int ScoreGiven;
     public float chainScoreMultiplier = 2f;
 
+    public float DistanceFromBuilding = 350f;
+
     public void Initialize(BuildingManager buildingManager, ChainManager chainManager) {
         BuildingManager = buildingManager;
         ChainManager = chainManager;
@@ -66,18 +68,17 @@ public class Enemy : MonoBehaviour
             Death();
         }
 
-        if (Vector3.Distance(CurrentTarget.transform.position, transform.position) > 2) {
-            CurrentTarget = null;
-            Agent.enabled = true;
-        }
-
         if (CurrentTarget == null && Agent.enabled && BuildingManager != null) {
             var building = BuildingManager.FindClosestHouse(transform.position);
             if (building != null) GoTo(building.transform);
         }
         Animator.SetInteger("State", (int)State);
 
-        
+        if(CurrentTarget != null) {
+            if (!CurrentTarget.GetComponent<Collider>().bounds.Intersects(GetComponent<Collider>().bounds)) {
+                CurrentTarget = null;
+            }
+        }
     }
 
     public void Attack()
@@ -134,6 +135,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.GetComponent<Building>() == CurrentTarget) {
+            CurrentTarget = null;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         var enemy = collision.collider.GetComponent<Enemy>();
@@ -155,6 +162,8 @@ public class Enemy : MonoBehaviour
                 AddJoint(enemy.GetComponent<Rigidbody>(), collision.GetContact(0).point);
                 //turn off the AI
                 Agent.enabled = false;
+                //Turn off physics contraints
+                RigidBody.constraints = RigidbodyConstraints.None;
                 //assign its chain to be that of the rest of the chain
                 chain = enemy.chain;
                 chain.Add(this);
@@ -165,6 +174,8 @@ public class Enemy : MonoBehaviour
                 enemy.AddJoint(GetComponent<Rigidbody>(), collision.GetContact(0).point);
                 //turn off the AI
                 enemy.Agent.enabled = false;
+                //Turn off physics contraints
+                RigidBody.constraints = RigidbodyConstraints.None;
                 //assign its chain to be that of the rest of the chain
                 enemy.chain = chain;
                 chain.Add(enemy);

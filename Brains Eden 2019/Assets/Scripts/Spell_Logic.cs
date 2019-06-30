@@ -26,6 +26,8 @@ public class Spell_Logic : MonoBehaviour
         if (hit.collider != null)
         {
             transform.position = hit.point + (Vector3.up * hover_height);
+            var enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null) enemy.State = EnemyState.DIEING;
         }
 
         if (current_time >= max_lifetime)

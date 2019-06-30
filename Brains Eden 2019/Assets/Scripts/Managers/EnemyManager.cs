@@ -65,7 +65,7 @@ public class EnemyManager : MonoBehaviour
         var enemy = Instantiate(EnemyPrefab, spawnPoint, Quaternion.identity).GetComponent<Enemy>();
         enemy.transform.SetParent(transform);
         enemy.ScoreGiven = EnemyAwardingScore;
-        enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
+        //enemy.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
         enemy.Initialize(BuildingManager, ChainManager);
         EnemyList.Add(enemy);
     }

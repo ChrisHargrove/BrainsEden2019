@@ -302,6 +302,7 @@ MonoBehaviour:
   RigidBody: {fileID: 9003329913089833131}
   Animator: {fileID: 2125782298967134448}
   Mesh: {fileID: 3909551964111076788}
+  CurrentTarget: {fileID: 0}
   ChainManager: {fileID: 0}
   IsDead: 0
   DamageDone: 2
@@ -315,6 +316,7 @@ MonoBehaviour:
   DissolveParticle: {fileID: 599896603692993958}
   ScoreGiven: 0
   chainScoreMultiplier: 2
+  DistanceFromBuilding: 350
 --- !u!195 &9003329913089833128
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -363,7 +365,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &5492679250945965015
 MonoBehaviour:
