@@ -25,7 +25,7 @@ public class Chain
 
 public class ChainManager : MonoBehaviour
 {
-    [SerializeField] private List<Chain> Chains = new List<Chain>();
+    [SerializeField] public List<Chain> Chains = new List<Chain>();
 
     public Chain NewChain() {
         var chain = new Chain();
