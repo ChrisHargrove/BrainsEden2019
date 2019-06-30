@@ -15,20 +15,26 @@ public class Camera_Boom : MonoBehaviour
     void Update()
     {
         RaycastHit hit = new RaycastHit();
-        Physics.Raycast(target_object.transform.position, -((target_object.transform.forward*2) - target_object.transform.up), out hit, 20.0f);
+
+        if(Physics.SphereCast(target_object.transform.position, 3f, -target_object.transform.forward, out hit, 20f))
+        {
+            
+        }
+
+        //Physics.Raycast(target_object.transform.position, -((target_object.transform.forward*2) - target_object.transform.up), out hit, 20.0f);
 
         float current_distance = camera_distance;
         if (hit.collider != null)
         {
-            transform.position = hit.point;
+            transform.position = hit.point + hit.normal * 3f;
         }
         else
         {
-            transform.position = target_object.transform.position + -((target_object.transform.forward * 2) - target_object.transform.up) * camera_distance;
+            //transform.position = target_object.transform.position + -((target_object.transform.forward * 2) - target_object.transform.up) * camera_distance;
+            transform.position = target_object.transform.position - target_object.transform.forward * camera_distance;
         }
 
         transform.LookAt(target_object.transform);
 
-        
     }
 }

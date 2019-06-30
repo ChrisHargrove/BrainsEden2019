@@ -40,7 +40,7 @@ public class Player_Controls : MonoBehaviour
     private PlayerState State;
 
     public Animator Animator;
-
+    public Transform Rotator;
 
     private Vector3 movement_direction = new Vector3();
 
@@ -108,6 +108,22 @@ public class Player_Controls : MonoBehaviour
     void Player_Rotation()
     {
         transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X") + Input.GetAxis("X Look"), 0.0f) * Time.deltaTime * turn_speed);
+        Rotator.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0.0f) * Time.deltaTime * turn_speed * 0.1f);
+
+
+        float minRotation = 0;
+        float maxRotation = 55;
+        Vector3 currentRotation = Rotator.localRotation.eulerAngles;
+        if(currentRotation.x > 200) {
+            currentRotation.x = Mathf.Clamp(currentRotation.x, 315, 360);
+        }
+        else
+        {
+            currentRotation.x = Mathf.Clamp(currentRotation.x, minRotation, maxRotation);
+        }
+
+        Rotator.localRotation = Quaternion.Euler(currentRotation);
+
     }
 
     Vector3 Controller_Movement_Controls()
