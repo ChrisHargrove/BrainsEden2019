@@ -14,6 +14,9 @@ public class SpawnEffect : MonoBehaviour {
 
     int shaderProperty;
 
+    public GameObject Owner;
+    public GameObject GoopSpray;
+
 	void Start ()
     {
         shaderProperty = Shader.PropertyToID("_cutoff");
@@ -24,6 +27,7 @@ public class SpawnEffect : MonoBehaviour {
         main.duration = spawnEffectTime;
 
         ps.Play();
+        if (GoopSpray != null) GoopSpray.SetActive(false);
 
     }
 	
@@ -35,10 +39,8 @@ public class SpawnEffect : MonoBehaviour {
         }
         else
         {
-            ps.Play();
-            timer = 0;
+            if(Owner != null) Destroy(Owner);
         }
-
 
         _renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate( Mathf.InverseLerp(0, spawnEffectTime, timer)));
         

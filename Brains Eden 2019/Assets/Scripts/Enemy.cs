@@ -14,7 +14,8 @@ public enum EnemyState
 public enum EnemyType
 {
     NORMAL = 0,
-    BOMB
+    BOMB,
+    HANS
 }
 
 public class Enemy : MonoBehaviour
@@ -84,6 +85,12 @@ public class Enemy : MonoBehaviour
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
                 break;
+            case EnemyType.HANS:
+                if (CurrentTarget != null) CurrentTarget.Damage(DamageDone);
+
+                Mesh.SetActive(false);
+                DissolveParticle.SetActive(true);
+                break;
         }
     }
 
@@ -92,10 +99,15 @@ public class Enemy : MonoBehaviour
         switch (DeathType)
         {
             case EnemyType.NORMAL:
+                Destroy(this.gameObject);
                 break;
             case EnemyType.BOMB:
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
+                break;
+            case EnemyType.HANS:
+                Mesh.SetActive(false);
+                DissolveParticle.SetActive(true);
                 break;
         }
 
