@@ -49,6 +49,9 @@ MonoBehaviour:
   Source: {fileID: 3648792940090605174}
   Music: {fileID: 8300000, guid: 35fa29ceaf7c25d4ab7bffd37cd59c71, type: 3}
   Effects: {fileID: 6244569484945354123}
+  FireBall: {fileID: 8300000, guid: f77ffdfee388e824f9a6846a7691ac7e, type: 3}
+  ForcePush: {fileID: 8300000, guid: 706f1c2d7bef14443b87d3dc3d187312, type: 3}
+  Explosion: {fileID: 8300000, guid: d2359bb953c64be48a5fbddbd1ba6e70, type: 3}
 --- !u!82 &3648792940090605174
 AudioSource:
   m_ObjectHideFlags: 0
