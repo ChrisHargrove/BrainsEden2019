@@ -46,11 +46,10 @@ public class Player_Controls : MonoBehaviour
 
     private SoundManager soundManager;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        var soundManagerObj = GameObject.FindGameObjectWithTag("SoundManager");
+        if (soundManagerObj != null) soundManager = soundManagerObj.GetComponent<SoundManager>();
 
         char_con = GetComponent<CharacterController>();
 
@@ -73,6 +72,8 @@ public class Player_Controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         Movement_Controls();
         Player_Rotation();
 
@@ -81,7 +82,7 @@ public class Player_Controls : MonoBehaviour
             is_shooting = true;
             Attack_Spell(attack_projectile,transform.forward);
             State = PlayerState.ATTACK;
-            soundManager.PlayForcePush();
+            if (soundManager != null) soundManager.PlayForcePush();
         }
 
         if ((Input.GetMouseButtonDown(1)) || ((Input.GetAxis("Shoot_Secondary") > 0) && (!is_shooting)))
@@ -91,7 +92,7 @@ public class Player_Controls : MonoBehaviour
                 is_shooting = true;
                 Attack_Spell(secondary_attack_projectile,transform.forward);
                 State = PlayerState.ATTACK;
-                soundManager.PlayFireball();
+                if (soundManager != null) soundManager.PlayFireball();
             }
         }
 

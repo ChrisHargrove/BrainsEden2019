@@ -9,11 +9,7 @@ public class Wave_Display_Logic : MonoBehaviour
     [SerializeField] private EnemyManager enemy_man;
     [SerializeField] private int current_time = 0;
     [SerializeField] private Text wave_text;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()

@@ -42,8 +42,6 @@ GameObject:
   - component: {fileID: 5669111755567770667}
   - component: {fileID: 5669111755567770664}
   - component: {fileID: 5669111755567770665}
-  - component: {fileID: 782278144}
-  - component: {fileID: 782278145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -128,33 +126,6 @@ MonoBehaviour:
   is_secondary_attack_enabled: 1
   Animator: {fileID: 1741756751802405494}
   Rotator: {fileID: 879651150}
---- !u!114 &782278144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5669111755567770670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5076efd11d89d8c47a4730d2112e0499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause_canvas: {fileID: 0}
---- !u!114 &782278145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5669111755567770670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6979cdb7c6767cb4b885035d941da8a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower_object: {fileID: 0}
-  fail_scene_name: Death_Scene
 --- !u!1001 &1741756751809799958
 PrefabInstance:
   m_ObjectHideFlags: 0

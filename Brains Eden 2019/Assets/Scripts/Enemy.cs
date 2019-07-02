@@ -63,7 +63,9 @@ public class Enemy : MonoBehaviour
         }
         chain = null;
 
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        var soundManagerObj = GameObject.FindGameObjectWithTag("SoundManager");
+        if (soundManagerObj != null) soundManager = soundManagerObj.GetComponent<SoundManager>();
+
     }
 
     void Update() {
@@ -96,7 +98,7 @@ public class Enemy : MonoBehaviour
 
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
-                soundManager.PlayExplosion(transform.position);
+                if (soundManager != null) soundManager.PlayExplosion(transform.position);
 
                 break;
             case EnemyType.HANS:
@@ -118,7 +120,7 @@ public class Enemy : MonoBehaviour
             case EnemyType.BOMB:
                 Mesh.SetActive(false);
                 ExplosionParticle.SetActive(true);
-                soundManager.PlayExplosion(transform.position);
+                if(soundManager != null) soundManager.PlayExplosion(transform.position);
                 break;
             case EnemyType.HANS:
                 Mesh.SetActive(false);
